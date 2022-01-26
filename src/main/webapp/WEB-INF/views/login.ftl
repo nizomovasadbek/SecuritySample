@@ -21,6 +21,8 @@
             <input type="password" id="password" name="password" class="form-control" value="1234" placeholder="Пароль" required>
         </p>
 
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
     </form>
 

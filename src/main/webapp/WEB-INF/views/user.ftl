@@ -9,8 +9,14 @@
 </head>
 <body>
 Это пользователь <br>
-   <a href="/logout"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Выход</button></a>
-       <br>
-   <a href="/"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Главная</button></a>
-       <br>
+
+    <form class="form-signin" method="post" action="/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Выход</button>
+    </form>
+
+    <br><br>
+
+    <a href="/"><button class="btn btn-lg btn-primary btn-block form-signin" type="submit">Главная</button></a>
+
 </body></html>
