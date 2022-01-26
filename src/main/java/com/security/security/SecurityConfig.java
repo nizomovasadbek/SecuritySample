@@ -18,12 +18,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http)throws Exception{
         http.authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/user").hasRole("USER")
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/supervisor").hasRole("SUPERVISOR")
+                .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .usernameParameter("name")
                 .and()
-                .httpBasic();
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID");
     }
 }
