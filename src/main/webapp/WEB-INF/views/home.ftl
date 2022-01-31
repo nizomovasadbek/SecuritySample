@@ -20,7 +20,7 @@ Hello World!
     <br>
     <a href="/admin"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Админ</button></a>
     <br>
-    <a href="/user"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Супервайзер</button></a>
+    <a href="/supervisor"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Супервайзер</button></a>
     <br>
 </body>
 </html>
