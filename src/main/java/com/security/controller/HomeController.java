@@ -26,7 +26,7 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("supervisor")
+    @GetMapping("/supervisor")
     public String supervisor(){
         return "supervisor";
     }
