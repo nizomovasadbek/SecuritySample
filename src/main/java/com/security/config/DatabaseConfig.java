@@ -13,15 +13,24 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Value("jdbc:mysql://localhost:3306/jet?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
-    String url;
+    private String url;
+
+    @Value("com.mysql.cj.jdbc.Driver")
+    private String classname;
+
+    @Value("root")
+    private String username;
+
+    @Value("root")
+    private String password;
 
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        driverManagerDataSource.setDriverClassName(classname);
         driverManagerDataSource.setUrl(url);
-        driverManagerDataSource.setUsername("root");
-        driverManagerDataSource.setPassword("root");
+        driverManagerDataSource.setUsername(username);
+        driverManagerDataSource.setPassword(password);
         return driverManagerDataSource;
     }
 }
