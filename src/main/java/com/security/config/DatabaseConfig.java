@@ -18,7 +18,7 @@ public class DatabaseConfig {
         return new JdbcTemplate(dataSource());
     }
 
-    @Value("jdbc:mysql://localhost:3306/jet?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
+    @Value("jdbc:mysql://localhost:3306/myuser?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
     private String url;
 
     @Value("com.mysql.cj.jdbc.Driver")
