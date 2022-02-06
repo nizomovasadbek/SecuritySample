@@ -1,10 +1,30 @@
 package com.security.controller;
 
+import com.security.model.User;
+import com.security.repository.MyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    public MyRepository myRepository;
+
+    @GetMapping("/signup")
+    public String registrationForm(){
+        return "/register";
+    }
+
+    @PostMapping("/user/register")
+    public ModelAndView registerUser(@ModelAttribute("user") User user){
+        myRepository.addSave(user);
+        return new ModelAndView("redirect:/login");
+    }
 
     @GetMapping("/")
     public String home(){
