@@ -10,7 +10,7 @@ public class MessageWebApplicationInitializer extends AbstractAnnotationConfigDi
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] { FreemarkerConfig.class, Config.class };
+        return new Class[] { FreemarkerConfig.class };
     }
 
     @Override
