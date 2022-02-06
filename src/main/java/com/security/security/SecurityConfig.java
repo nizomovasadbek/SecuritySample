@@ -13,16 +13,11 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DataSource dataSource;
+    IUserDetailsService userDetailsService;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username = ?")
-                .authoritiesByUsernameQuery("SELECT username, authority, authority from authorities WHERE" +
-                        " username =?")
-                .passwordEncoder(new BCryptPasswordEncoder())
-                ;
+    protected void configure(AuthenticationManagerBuilder auth)throws Exception{
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
