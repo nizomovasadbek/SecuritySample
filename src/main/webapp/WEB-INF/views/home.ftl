@@ -22,5 +22,6 @@ Hello World!
     <br>
     <a href="/supervisor"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit">Супервайзер</button></a>
     <br>
+    <a href="/signup"><button class="form-signin btn btn-lg btn-primary btn-block" type="submit" >Регистрация</button></a>
 </body>
 </html>
