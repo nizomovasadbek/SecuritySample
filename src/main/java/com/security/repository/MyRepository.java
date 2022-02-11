@@ -17,8 +17,6 @@ public class MyRepository {
     public JdbcTemplate jdbcTemplate;
 
     public void addSave(User addUser) {
-//        BCryptPasswordEncoder b = new BCryptPasswordEncoder();
-//        addUser.setPassword(b.encode(addUser.getPassword()));
 
         String sql = "INSERT INTO user (username, password, enabled, created, token, expiryDate) VALUES (?,?,?,?,?,?)";
         jdbcTemplate.update(sql, addUser.getUsername(), addUser.getPassword(), addUser.getEnabled().toString(),

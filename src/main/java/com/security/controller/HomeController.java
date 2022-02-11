@@ -1,5 +1,6 @@
 package com.security.controller;
 
+import com.security.mail.SendEmail;
 import com.security.model.User;
 import com.security.repository.MyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,12 @@ public class HomeController {
     @Autowired
     public MyRepository myRepository;
 
+    @Autowired
+    private SendEmail sendEmail;
+
     @GetMapping("/signup")
     public String registrationForm(){
+        sendEmail.sendMail("Hello You have successfully signed up");
         return "/register";
     }
 
