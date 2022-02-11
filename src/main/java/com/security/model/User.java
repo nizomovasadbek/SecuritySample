@@ -1,9 +1,49 @@
 package com.security.model;
 
+import java.util.Date;
+
 public class User {
     private int id;
     private String username;
     private String password;
+
+    private Boolean enabled;
+    private Date created;
+    private String token;
+    private Date expiryDate;
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Date getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
     private String role;
 
     public int getId() {

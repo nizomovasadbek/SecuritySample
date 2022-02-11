@@ -27,7 +27,7 @@ public class IUserDetailsService implements UserDetailsService {
         User user = myRepository.getByUsername(username);
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                true, true, true, true, getAuthorities());
+                user.getEnabled(), true, true, true, getAuthorities());
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(){
