@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="container">
     <form name="user" action="/user/register" method="POST">
     <p>Имя</p>
     <input title="Name" type="text" name="username"><br>
@@ -17,5 +18,6 @@
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <input type="submit" value="OK">
     </form>
+    </div>
 
 </body></html>
