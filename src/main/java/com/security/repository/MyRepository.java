@@ -13,8 +13,9 @@ public class MyRepository {
     public JdbcTemplate jdbcTemplate;
 
     public void addSave(User addUser){
+        String password = "{noop}"+addUser.getPassword();
         String sql = "INSERT INTO usergood(username, password) VALUES (?, ?)";
-        jdbcTemplate.update(sql, addUser.getUsername(), addUser.getPassword());
+        jdbcTemplate.update(sql, addUser.getUsername(), password);
     }
 
     public User getByUsername(String username){
