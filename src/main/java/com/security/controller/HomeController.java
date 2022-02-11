@@ -51,7 +51,11 @@ public class HomeController {
     public String confirmation(@RequestParam("token") String token){
         User user = myRepository.getUserByToken(token);
 
-        return null;
+        user.setEnabled(true);
+
+        myRepository.update(user);
+
+        return "/login";
     }
 
     @GetMapping("/")
