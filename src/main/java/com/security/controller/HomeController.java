@@ -22,7 +22,6 @@ public class HomeController {
 
     @GetMapping("/signup")
     public String registrationForm(){
-        sendEmail.sendMail("Hello You have successfully signed up");
         return "/register";
     }
 
@@ -30,6 +29,9 @@ public class HomeController {
     public ModelAndView registerUser(@ModelAttribute("user") User user){
         BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
         user.setPassword(encode.encode(user.getPassword()));
+
+        user.setExpiryDate(new MyDate().calculateExpiryDate());
+        user.setEnabled(false);
 
         myRepository.addSave(user);
         return new ModelAndView("redirect:/login");
