@@ -1,14 +1,25 @@
 package com.security.model;
 
 public class User {
+    private int id;
     private String username;
     private String password;
+    private String role;
 
-    public User(){}
+    public int getId() {
+        return id;
+    }
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getUsername() {
