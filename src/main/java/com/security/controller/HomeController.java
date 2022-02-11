@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
+
 @Controller
 public class HomeController {
 
@@ -26,14 +29,19 @@ public class HomeController {
     }
 
     @PostMapping("/user/register")
-    public ModelAndView registerUser(@ModelAttribute("user") User user){
+    public ModelAndView registerUser(@ModelAttribute("user") User user, HttpServletRequest request){
         BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
         user.setPassword(encode.encode(user.getPassword()));
 
         user.setExpiryDate(new MyDate().calculateExpiryDate());
         user.setEnabled(false);
 
+        String token = UUID.randomUUID().toString();
+        user.setToken(token);
+
         myRepository.addSave(user);
+        String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
+                + request.getContextPath() + "/regConfirm" + user;
         return new ModelAndView("redirect:/login");
     }
 
