@@ -1,10 +1,9 @@
 package com.security.repository.mapper;
 
-import java.sql.ResultSet;
 import com.security.model.User;
+import org.springframework.jdbc.core.RowMapper;
 
-import javax.swing.tree.RowMapper;
-import javax.swing.tree.TreePath;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserMapper implements RowMapper<User> {
@@ -14,10 +13,5 @@ public class UserMapper implements RowMapper<User> {
         user.setUsername(resultset.getString("username"));
         user.setPassword(resultset.getString("password"));
         return user;
-    }
-
-    @Override
-    public int[] getRowsForPaths(TreePath[] path) {
-        return null;
     }
 }
