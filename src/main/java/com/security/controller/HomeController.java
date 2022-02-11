@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,15 @@ public class HomeController {
         myRepository.addSave(user);
         String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
                 + request.getContextPath() + "/regConfirm" + user;
+        sendEmail.sendMail(appUrl);
         return new ModelAndView("redirect:/login");
+    }
+
+    @GetMapping("/regConfirm")
+    public String confirmation(@RequestParam("token") String token){
+        User user = myRepository.getUserByToken(token);
+
+        return null;
     }
 
     @GetMapping("/")
