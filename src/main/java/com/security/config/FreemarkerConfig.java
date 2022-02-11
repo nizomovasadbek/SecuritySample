@@ -24,7 +24,7 @@ public class FreemarkerConfig {
         FreeMarkerViewResolver res = new FreeMarkerViewResolver();
         res.setSuffix(".ftl");
         res.setContentType("text/html;charset=UTF-8");
-        res.setCache(true);
+        res.setCache(false);
         return res;
     }
 
