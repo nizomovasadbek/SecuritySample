@@ -8,7 +8,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-
 @Configuration
 @ComponentScan("com.security")
 public class MailConfig {
