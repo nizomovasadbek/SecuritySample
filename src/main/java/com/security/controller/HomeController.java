@@ -31,8 +31,8 @@ public class HomeController {
 
     @PostMapping("/user/register")
     public ModelAndView registerUser(@ModelAttribute("user") User user, HttpServletRequest request){
-        BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
-        user.setPassword(encode.encode(user.getPassword()));
+//        BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
+//        user.setPassword(encode.encode(user.getPassword()));
 
         user.setExpiryDate(new MyDate().calculateExpiryDate());
         user.setEnabled(false);

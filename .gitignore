@@ -2,3 +2,5 @@
 target/
 *.iml
 MailConfig.java
+*.war
+*.jar
