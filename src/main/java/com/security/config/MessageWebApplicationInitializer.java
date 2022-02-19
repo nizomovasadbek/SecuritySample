@@ -1,6 +1,9 @@
 package com.security.config;
 
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.FrameworkServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.ServletContext;
@@ -31,5 +34,12 @@ public class MessageWebApplicationInitializer extends AbstractAnnotationConfigDi
     private void hiddenHttpMethodFilter(ServletContext aServletContext){
         aServletContext.addFilter("hiddenHttpMethodFilter", new HiddenHttpMethodFilter())
                 .addMappingForUrlPatterns(null, true, "/*");
+    }
+
+    @Override
+    protected FrameworkServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
+        DispatcherServlet dis = (DispatcherServlet) super.createDispatcherServlet(servletAppContext);
+        dis.setThrowExceptionIfNoHandlerFound(true);
+        return dis;
     }
 }
