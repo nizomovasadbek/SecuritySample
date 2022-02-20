@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Вход в Аккаунт</title>
@@ -8,7 +9,7 @@
 
 </head>
 <body>
-Это Админ <br>
+Это пользователь <br>
 
     <form class="form-signin" method="post" action="/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -19,5 +20,4 @@
 
     <a href="/"><button class="btn btn-lg btn-primary btn-block form-signin" type="submit">Главная</button></a>
 
-</body>
-</html>
+</body></html>
