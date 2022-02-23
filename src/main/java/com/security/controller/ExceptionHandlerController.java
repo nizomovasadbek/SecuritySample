@@ -10,5 +10,4 @@ public class ExceptionHandlerController {
     public String PageDenied(){
         return "denied";
     }
-
 }

@@ -24,9 +24,14 @@ public class HomeController {
     @Autowired
     private SendEmail sendEmail;
 
+//    @GetMapping("/denied")
+//    public String PageDenied(){
+//        return "denied";
+//    }
+
     @GetMapping("/signup")
     public String registrationForm(){
-        return "/register";
+        return "register";
     }
 
     @PostMapping("/user/register")
@@ -43,7 +48,8 @@ public class HomeController {
         myRepository.addSave(user);
         String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
                 + request.getContextPath() + "/regConfirm" + user;
-        sendEmail.sendMail(appUrl);
+        String text = "Hello " + user.getUsername() + " to confirm your account click this link below ";
+        sendEmail.sendMail(text + appUrl);
         return new ModelAndView("redirect:/login");
     }
 
@@ -55,7 +61,7 @@ public class HomeController {
 
         myRepository.update(user);
 
-        return "/login";
+        return "login";
     }
 
     @GetMapping("/")
