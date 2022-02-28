@@ -1,6 +1,6 @@
 /.idea
 /target
 *.iml
-/src\main\java\com\security\config\MailConfig.java
+/src/main/java/com/security/config/MailConfig.java
 *.war
 *.jar
