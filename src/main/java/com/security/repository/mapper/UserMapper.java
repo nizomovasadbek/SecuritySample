@@ -14,6 +14,7 @@ public class UserMapper implements RowMapper<User> {
         user.setUsername(resultset.getString("username"));
         user.setPassword(resultset.getString("password"));
         String bool_str = resultset.getString("enabled");
+        user.setRole(resultset.getString("role"));
         boolean bool = Boolean.parseBoolean(bool_str);
         user.setEnabled(bool);
         return user;

@@ -17,7 +17,7 @@ import com.security.model.User;
 @Service
 public class IUserDetailsService implements UserDetailsService {
 
-    private static final String ROLE_USER = "ROLE_SUPER";
+    private static String ROLE_USER = "ROLE_USER";
 
     @Autowired
     public MyRepository myRepository;
@@ -25,6 +25,8 @@ public class IUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = myRepository.getByUsername(username);
+        if(user.getRole()!=null || user.getRole().equalsIgnoreCase("null"))
+        ROLE_USER = user.getRole();
 
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                 user.getEnabled(), true, true, true, getAuthorities());

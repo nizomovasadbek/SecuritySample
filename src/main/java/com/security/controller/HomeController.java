@@ -45,6 +45,7 @@ public class HomeController {
 
         String token = UUID.randomUUID().toString();
         user.setToken(token);
+        user.setRole("ROLE_USER");
 
         myRepository.addSave(user);
         String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
