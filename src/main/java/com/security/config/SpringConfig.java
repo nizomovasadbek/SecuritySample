@@ -39,9 +39,9 @@ public class SpringConfig implements WebMvcConfigurer {
     @Bean
     public SpringResourceTemplateResolver temp(){
         SpringResourceTemplateResolver res = new SpringResourceTemplateResolver();
-        res.setPrefix("/WEB-INF/views/");
-        res.setSuffix(".html");
-        res.setCharacterEncoding("UTF-8");
+        res.setPrefix(prefix);
+        res.setSuffix(suffix);
+        res.setCharacterEncoding(charset);
         res.setApplicationContext(applicationContext);
         return res;
     }
@@ -57,7 +57,7 @@ public class SpringConfig implements WebMvcConfigurer {
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         ThymeleafViewResolver th = new ThymeleafViewResolver();
-        th.setCharacterEncoding("UTF-8");
+        th.setCharacterEncoding(charset);
         th.setTemplateEngine(springTemplateEngine());
         registry.viewResolver(th);
     }
