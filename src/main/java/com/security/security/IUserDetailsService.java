@@ -17,7 +17,7 @@ import com.security.model.User;
 @Service
 public class IUserDetailsService implements UserDetailsService {
 
-    private static final String ROLE_USER = "ROLE_USER";
+    private static final String ROLE_USER = "ROLE_SUPER";
 
     @Autowired
     public MyRepository myRepository;
