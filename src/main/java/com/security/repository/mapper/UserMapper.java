@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class UserMapper implements RowMapper<User> {
 
+    @Override
     public User mapRow(ResultSet resultset, int i) throws SQLException {
         User user = new User();
         user.setUsername(resultset.getString("username"));
