@@ -13,6 +13,8 @@ import java.util.Properties;
 @ComponentScan("com.security")
 public class MailConfig {
 
+    private String username;
+
     @Bean
     public JavaMailSender javaMailSender(){
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();

@@ -3,14 +3,16 @@ package com.security.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.stereotype.Controller;
 
 import javax.sql.DataSource;
 
-@Configuration
+@Controller
 @ComponentScan("com.security")
+@PropertySource("classpath:DatabaseConfiguration.properties")
 public class DatabaseConfig {
 
     @Bean
@@ -18,16 +20,16 @@ public class DatabaseConfig {
         return new JdbcTemplate(dataSource());
     }
 
-    @Value("jdbc:mysql://localhost:3306/myuser?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC")
+    @Value("${database.connect.configuration}")
     private String url;
 
-    @Value("com.mysql.cj.jdbc.Driver")
+    @Value("${database.connect.classname}")
     private String classname;
 
-    @Value("root")
+    @Value("${database.username}")
     private String username;
 
-    @Value("root")
+    @Value("${database.password}")
     private String password;
 
     @Bean
