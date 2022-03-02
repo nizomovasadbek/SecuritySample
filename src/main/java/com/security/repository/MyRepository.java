@@ -17,9 +17,9 @@ public class MyRepository {
 
     public void addSave(User addUser) {
 
-        String sql = "INSERT INTO user (username, password, enabled, created, token, expiryDate) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO user (username, password, enabled, created, token, expiryDate, role) VALUES (?,?,?,?,?,?,?)";
         jdbcTemplate.update(sql, addUser.getUsername(), addUser.getPassword(), addUser.getEnabled().toString(),
-                new Date(), addUser.getToken(), addUser.getExpiryDate());
+                new Date(), addUser.getToken(), addUser.getExpiryDate(), addUser.getRole());
     }
 
     public User getUserByToken(String token) {
