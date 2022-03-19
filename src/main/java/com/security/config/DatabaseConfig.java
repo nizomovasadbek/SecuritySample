@@ -3,21 +3,19 @@ package com.security.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.stereotype.Controller;
 
 import javax.sql.DataSource;
 
-@Controller
+@Configuration
 @ComponentScan("com.security")
 @PropertySource("classpath:DatabaseConfiguration.properties")
 public class DatabaseConfig {
 
     @Bean
-    @Scope("prototype")
     public JdbcTemplate jdbcTemplate(){
         return new JdbcTemplate(dataSource());
     }

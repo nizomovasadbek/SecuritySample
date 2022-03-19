@@ -8,7 +8,6 @@
   <artifactId>security-sample</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
-    <description>This is a test of Spring MVC Security system</description>
 
   <name>security-sample Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
@@ -21,7 +20,6 @@
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <java.version>1.8</java.version>
     <encoding>UTF-8</encoding>
-    <spring.version>5.3.14</spring.version>
   </properties>
 
     <dependencyManagement>
@@ -29,7 +27,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
-                <version>5.2.3.RELEASE</version>
+                <version>5.3.15</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -37,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-bom</artifactId>
-                <version>5.2.2.RELEASE</version>
+                <version>5.6.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -45,106 +43,57 @@
     </dependencyManagement>
 
     <dependencies>
-
-        <!--<dependency>-->
-            <!--<groupId>javax.mail</groupId>-->
-            <!--<artifactId>mail</artifactId>-->
-            <!--<version>1.4.7</version>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-            <version>1.6.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-        </dependency>
-
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
+            <version>5.3.15</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.6.1</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.6.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
+            <version>5.3.15</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.15</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.15</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf-spring5</artifactId>
-            <version>3.0.14.RELEASE</version>
-        </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
         </dependency>
-
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.27</version>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring5</artifactId>
+            <version>3.0.14.RELEASE</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>2.6.4</version>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.6.4</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.15</version>
         </dependency>
-
     </dependencies>
 
     <build>
