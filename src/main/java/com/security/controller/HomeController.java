@@ -36,7 +36,8 @@ public class HomeController {
     }
 
     @PostMapping("/user/register")
-    public ModelAndView registerUser(@ModelAttribute("user") User user, HttpServletRequest request){
+    public ModelAndView registerUser(@ModelAttribute("user") User user,
+                          @RequestParam("email")   String email  ,HttpServletRequest request){
         BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
         user.setPassword(encode.encode(user.getPassword()));
 
@@ -51,7 +52,7 @@ public class HomeController {
         String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort()
                 + request.getContextPath() + "/regConfirm" + user;
         String text = "Hello " + user.getUsername() + " to confirm your account click this link below ";
-        sendEmail.sendMail(text + appUrl);
+        sendEmail.sendMailTo(text + appUrl, email);
         return new ModelAndView("redirect:/login");
     }
 

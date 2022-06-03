@@ -21,4 +21,15 @@ public class SendEmail {
 
         javaMailSender.send(msg);
     }
+    
+    public void sendMailTo(String message, String to){
+        SimpleMailMessage msg = new SimpleMailMessage();
+
+        msg.setTo(to);
+        msg.setFrom("nizomovasadbejava@gmail.com");
+        msg.setSubject("Confirm");
+        msg.setText(message);
+
+        javaMailSender.send(msg);
+    }
 }
